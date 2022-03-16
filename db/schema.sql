@@ -5,4 +5,11 @@ DROP TABLE IF EXISTS EMPLOYEE;
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30)
-)
+);
+
+CREATE TABLE roles (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(30),
+    salary DECIMAL (10,2),
+    department_id INTEGER
+);
