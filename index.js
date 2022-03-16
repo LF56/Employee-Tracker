@@ -29,7 +29,7 @@ const mainMenu = () => {
       type: 'list',
       name: 'choice',
       message: 'What would you like to view?',
-      choices: ['View All Employees', 'View All Roles', 'View All Departments']
+      choices: ['View All Employees', 'View All Roles', 'View All Departments', 'Add A Department', 'Add A Role', 'Add An Employee', 'Update Employee Role']
     }
   ])
   .then(data => {
