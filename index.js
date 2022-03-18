@@ -80,14 +80,20 @@ const addRole = () => {
   ]).then(data => {
     const sql = `SELECT name FROM departments;`;
     db.query(sql, (err, rows) => {
-      let departmentChoice = [] 
+      let departmentChoice = [] ;
+      for (i = 0; i < data.length; i++) {
+        if (departmentChoice[i].name === data.department_id) {
+          department_id = departmentChoice[i].department_id
+        }
+      }
+
       rows.forEach((element)=> {
         departmentChoice.push(element.name)
       })
       let departmentName = {
         type: 'list',
           name: 'choice',
-            message: 'What would you like to view?',
+            message: 'What is the new department name?',
               choices: departmentChoice
       } 
       inquirer.prompt(departmentName)
