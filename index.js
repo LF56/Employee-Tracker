@@ -72,32 +72,32 @@ const addRole = () => {
       name: 'salary',
       message: 'What is the salary of the new role?',
     },
-    // {
-    //   type: 'input',
-    //   name: 'department_id',
-    //   message: 'What is the department ID for this role?',
-    // },
   ]).then(data => {
     const sql = `SELECT name FROM departments;`;
     db.query(sql, (err, rows) => {
-      let departmentChoice = [] ;
+      let departmentChoice = [];
       for (i = 0; i < data.length; i++) {
         if (departmentChoice[i].name === data.department_id) {
           department_id = departmentChoice[i].department_id
         }
       }
 
-      rows.forEach((element)=> {
+      rows.forEach((element) => {
         departmentChoice.push(element.name)
       })
       let departmentName = {
         type: 'list',
-          name: 'choice',
-            message: 'What is the new department name?',
-              choices: departmentChoice
-      } 
+        name: 'choice',
+        message: 'What is the new department name?',
+        choices: departmentChoice
+      }
       inquirer.prompt(departmentName)
-      .then(data1 => console.log(data1) )
+        .then(data1 => {
+          console.log(data1.choice)
+          let index = departmentChoice.indexOf(data1.choice) + 1;
+          db.query(`INSERT INTO roles (title, salary, department_id) VALUES ('${data.title}', '${data.salary}', '${index}')`)
+          mainMenu()
+        })
     })
   })
 }
