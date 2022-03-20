@@ -127,6 +127,9 @@ const mainMenu = () => {
       if (data.choice === 'Add A Role') {
         addRole()
       }
+      if (data.choice === 'Add An Employee') {
+        addEmployee()
+      }
     })
 }
 
