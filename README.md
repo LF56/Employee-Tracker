@@ -18,6 +18,7 @@ To install this project, you are able to fork or clone this repository, and then
 You can use this application through the command line/ terminal on your device, or through VS Code as well.
 
 # Video
+[Click here for demo video!](https://drive.google.com/file/d/1VDoDRJ9NmjKpzM_fSLX4AaDwlb28ngIT/view?usp=sharing)
 
 
 
